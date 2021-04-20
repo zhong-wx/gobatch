@@ -52,6 +52,8 @@ func doBatch(workerID int, datas []interface{}) {
 	for _, data := range datas {
 		if parsedValue, ok := data.(LiveEventUser); ok {
 			liveEventUserDatas = append(liveEventUserDatas, parsedValue)
+		} else {
+			panic("assert fail")
 		}
 	}
 	if len(liveEventUserDatas) > 0 {
